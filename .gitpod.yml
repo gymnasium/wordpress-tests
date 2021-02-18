@@ -10,11 +10,15 @@ tasks:
   - name: MySQL
     init: wp core download --path=$GITPOD_REPO_ROOT;
     command: >
-        mysqld --initialize-insecure;
-        mysqld &
-        sleep 5;
+        # mysqld --initialize-insecure;
+        # mysqld &
+        # sleep 20;
+        mysqld --initialize-insecure --log-error=$GITPOD_REPO_ROOT/gitpod_config/mysql/logs/error.log --general-log-file=$GITPOD_REPO_ROOT/gitpod_config/mysql/logs/mysql.log --datadir=$GITPOD_REPO_ROOT/gitpod_config/mysql/data;
+        mysqld --log-error=$GITPOD_REPO_ROOT/gitpod_config/mysql/logs/error.log --general-log-file=$GITPOD_REPO_ROOT/gitpod_config/mysql/logs/mysql.log --datadir=$GITPOD_REPO_ROOT/gitpod_config/mysql/data &
+        sleep 20;
+        gp await-port 3306;
         cd $GITPOD_REPO_ROOT;
-        wp config create --dbname=wpclidemo --dbuser=root --dbpassword=test;
+        wp config create --dbname=wpclidemo --dbuser=root;
         wp db create;
         wp core install --url=$(gp url 8080) --title="WP-Gitpod" --admin_user=gitpod --admin_password=gitpod --admin_email=admin@email.com;
         curl http://loripsum.net/api/3 | wp post generate --post_content --count=10;
