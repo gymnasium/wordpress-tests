@@ -10,9 +10,6 @@ tasks:
   - name: MySQL
     init: wp core download --path=$GITPOD_REPO_ROOT;
     command: >
-        # mysqld --initialize-insecure;
-        # mysqld &
-        # sleep 20;
         mysqld --initialize-insecure --log-error=$GITPOD_REPO_ROOT/gitpod_config/mysql/logs/error.log --general-log-file=$GITPOD_REPO_ROOT/gitpod_config/mysql/logs/mysql.log --datadir=$GITPOD_REPO_ROOT/gitpod_config/mysql/data;
         mysqld --log-error=$GITPOD_REPO_ROOT/gitpod_config/mysql/logs/error.log --general-log-file=$GITPOD_REPO_ROOT/gitpod_config/mysql/logs/mysql.log --datadir=$GITPOD_REPO_ROOT/gitpod_config/mysql/data &
         sleep 20;
