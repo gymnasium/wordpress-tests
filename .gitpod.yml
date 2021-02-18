@@ -19,7 +19,7 @@ tasks:
   - name: Wordpress
     init: wp core download --path=$GITPOD_REPO_ROOT;
     command: >
-        wp core config --dbname=wordpress --dbuser=root --dbpass=root --extra-php <<PHP define( 'WP_DEBUG', true ); define( 'DISALLOW_FILE_EDIT', true ); PHP
+        wp core config --dbname=wordpress --dbuser=root --dbpass=root
         wp core install --url=$(gp url 8080) --title="Gymnasium's WP-Gitpod" --admin_user=gym --admin_password=gym --admin_email=admin@email.com;
         curl http://loripsum.net/api/3 | wp post generate --post_content --count=10;
         chmod 777 $GITPOD_REPO_ROOT/.htaccess;
