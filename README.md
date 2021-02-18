@@ -1,6 +1,8 @@
 # Host LAMP on gitpod
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/gymnasium/wordpress-tests)
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/danielcregg/gitpod-lamp)
+
+
 
 You can use this repository to run a website on [Gitpod](https://gitpod.io). The default file being served is index.php.
 
