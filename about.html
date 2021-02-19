@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta name="author" content="Glenn Hodgkinson">
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+  <title>Home | Glenn Hodgkinson</title>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+  <header id="page-header" class="cf">
+    <div class="inner-wrap pad20">
+      <a href="index.html"><img src="images/logo-long.png" class="logo float-left"></a>
+
+      <div class="mobile-only align-right">
+        <span class="menu-trigger"></span>
+      </div>
+
+
+
+      <nav id="top-nav" class="mob-menu">
+          <ul id="menu-main-nav" class="menu">
+            <li><a href="about.html">About</a>
+            </li>
+          </ul>
+      </nav>
+    </div> <!-- /.inner-wrap -->
+  </header> <!-- /#page-header -->
+
+  <div class="content-wrapper">
+
+    <div class="inner-wrap darkbg shadow cf">
+
+      <div class="pad20">
+        <h1>About</h1>
+      </div>
+
+    </div>
+
+    <div class="inner-wrap whitebg shadow pad20">
+
+
+        <article class="article-wrap cf">
+
+          <p>I drink too much coffee and don’t get enough sleep.</p>
+          <p>I am originally from England but now live just outside of Boston, USA.</p>
+          <p>I have a beautiful family; a wonderful wife and two small children (which is why I drink too much coffee and don’t get enough sleep).</p>
+          <p>I have been designing and developing websites&nbsp;for 20 years.</p>
+
+
+      </article> <!-- /.article-wrap -->
+
+
+    </div> <!-- /.inner-wrap -->
+
+  </div> <!-- /.content-wrapper -->
+
+  <div id="page-footer" class="inner-wrap">
+        <p class="align-center">&copy;2014 Glenn Hodgkinson</p>
+  </div>
+
+  <script>
+      jQuery(".menu-trigger").click(function () {
+        jQuery(".mob-menu").slideToggle("fast");
+      });
+  </script>
+
+</body>
+
+</html>

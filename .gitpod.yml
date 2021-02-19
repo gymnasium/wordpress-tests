@@ -2,26 +2,22 @@ image:
   file: Dockerfile
 ports:
   - port: 8080
-    onOpen: open-browser
+    onOpen: open-preview
   - port: 3306
     onOpen: ignore
-checkoutLocation: "wordpress"
+checkoutLocation: "lamp"
 workspaceLocation: "."
 tasks:
-  - name: Apache & MySQL
+  - name: MySQL
     command: >
         mysqld --initialize-insecure;
         mysqld &
         sleep 5;
-        mysql -u root -e "CREATE DATABASE wordpress";
         cd $GITPOD_REPO_ROOT;
-        apachectl start;
-  - name: Wordpress
-    init: wp core download --path=$GITPOD_REPO_ROOT;
+  - name: Apache
     command: >
-        cd $GITPOD_REPO_ROOT;
-        wp config create --dbname=wordpress --dbuser=root;
-        wp core install --url=$(gp url 8080) --title="Gymnasium WP-Gitpod" --admin_user=gitpod --admin_password=gitpod --admin_email=admin@email.com;
-        curl http://loripsum.net/api/3 | wp post generate --post_content --count=10;
+        apachectl start;
+  - name: Lamp
+    command: >
         chmod 777 $GITPOD_REPO_ROOT/.htaccess;
         cd $GITPOD_REPO_ROOT;
