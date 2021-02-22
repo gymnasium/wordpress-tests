@@ -21,5 +21,3 @@ tasks:
     command: >
       chmod 777 $GITPOD_REPO_ROOT/.htaccess;
       cd $GITPOD_REPO_ROOT;
-      echo "Now installing Wordpress...";
-      bash install.sh;
