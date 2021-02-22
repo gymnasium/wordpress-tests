@@ -17,7 +17,7 @@ tasks:
   - name: Apache
     command: >
       apachectl start;
-  name: Wordpress
+    name: Wordpress?
     command: >
       chmod 777 $GITPOD_REPO_ROOT/.htaccess;
       cd $GITPOD_REPO_ROOT;
