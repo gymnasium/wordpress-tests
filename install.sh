@@ -82,7 +82,7 @@ if [ -d "./wp-includes" ]; then
         fi
     else
         # download the WordPress core files
-        rm $fullpath/index.php
+        # rm $fullpath/index.php // Skip this step? Unless we want to delete index.html instead
         wp core download
 fi
 
