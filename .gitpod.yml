@@ -8,19 +8,14 @@ ports:
 checkoutLocation: "wordpress"
 workspaceLocation: "."
 tasks:
-  - name: MySQL
-    command: >
-      mysqld --initialize-insecure;
-      mysqld &
-      sleep 5;
-      cd $GITPOD_REPO_ROOT;
-      service mysql start;
-  - name: Apache
-    command: >
-      apachectl start;
-  - name: Wordpress
-    command: >
-      chmod 777 $GITPOD_REPO_ROOT/.htaccess;
-      cd $GITPOD_REPO_ROOT;
-      echo "Now installing Wordpress...";
-      bash install.sh;
+  - command: >
+    mysqld --initialize-insecure &&
+    mysqld &
+    sleep 5 &&
+    cd $GITPOD_REPO_ROOT &&
+    service mysql status &&
+    apachectl start &&
+    chmod 777 $GITPOD_REPO_ROOT/.htaccess &&
+    cd $GITPOD_REPO_ROOT &&
+    echo "Now installing Wordpress..." &&
+    bash install.sh
