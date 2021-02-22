@@ -9,6 +9,9 @@ checkoutLocation: "wordpress"
 workspaceLocation: "."
 tasks:
   - name: MySQL
+    init: > 
+      echo "Now installing Wordpress...";
+      bash install.sh;
     command: >
       mysqld --initialize-insecure;
       mysqld &
@@ -17,12 +20,6 @@ tasks:
       gp sync-done db;
   - name: Apache
     command: >
-      gp sync-await db && apachectl start;
-      gp sync-done server;
-  - name: Wordpress
-    command: >
-      gp sync-await server &&
       chmod 777 $GITPOD_REPO_ROOT/.htaccess;
-      cd $GITPOD_REPO_ROOT;
-      echo "Now installing Wordpress...";
-      bash install.sh;
+      apachectl start;
+      gp sync-done server;
