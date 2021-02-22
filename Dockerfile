@@ -16,10 +16,8 @@ RUN sudo sed -i 's/^bind-address.*/#&/' /etc/mysql/mysql.conf.d/mysqld.cnf
 
 RUN addgroup gitpod www-data
 
-# RUN curl -0 https://files.phpmyadmin.net/phpMyAdmin/4.9.1/phpMyAdmin-4.9.1-english.tar.gz
-# RUN mkdir /workspace/wordpress-hello/phpmyadmin && sudo mv wp-cli.phar /workspace/wordpress-hello/phpmyadmin/
-# RUN tar xvzf /workspace/wordpress-hello/phpmyadmin/phpMyAdmin-4.9.1-english.tar.gz
-
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
 RUN sudo mv wp-cli.phar /usr/local/bin/wp
+
+RUN --chown=gitpod:gitpod install.sh
