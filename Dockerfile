@@ -10,7 +10,7 @@ RUN echo ". /workspace/wordpress/apache/envvars" > /etc/apache2/envvars
 RUN echo "!include /workspace/wordpress/mysql/mysql.cnf" > /etc/mysql/my.cnf
 
 RUN mkdir /var/run/mysqld
-RUN chown gitpod:gitpod /var/run/apache2 /var/lock/apache2 /var/run/mysqld
+RUN chown gitpod:gitpod /var/run/apache2 /var/lock/apache2 /var/run/mysqld install.sh
 
 RUN sudo sed -i 's/^bind-address.*/#&/' /etc/mysql/mysql.conf.d/mysqld.cnf
 
@@ -19,5 +19,3 @@ RUN addgroup gitpod www-data
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
 RUN sudo mv wp-cli.phar /usr/local/bin/wp
-
-RUN --chown=gitpod:gitpod install.sh
